@@ -1,1 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta
+        name="description"
+        content="Event Announcement Portal - AWS Serverless Project"
+    >
+
+    <title>Event Announcement Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container nav">
+
+            <a href="#" class="brand">
+                Event<span>Hub</span>
+            </a>
+
+            <nav>
+                <a href="#events">Events</a>
+                <a href="#subscribe">Subscribe</a>
+                <a href="#create-event">Create Event</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+
+                <div>
+                    <p class="eyebrow">AWS SERVERLESS EVENT PLATFORM</p>
+
+                    <h1>
+                        Discover events.<br>
+                        <span>Stay informed.</span>
+                    </h1>
+
+                    <p class="hero-text">
+                        Explore upcoming events and subscribe to receive
+                        notifications when new events are announced.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#events" class="btn primary">
+                            Explore Events
+                        </a>
+
+                        <a href="#subscribe" class="btn secondary">
+                            Get Notifications
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="hero-card">
+
+                    <div class="hero-card-icon">
+                        ☁
+                    </div>
+
+                    <p>AWS Serverless</p>
+
+                    <strong>
+                        S3 · API Gateway · Lambda · SNS
+                    </strong>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Upcoming Events -->
+        <section id="events" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="eyebrow">UPCOMING</p>
+                        <h2>Events</h2>
+                    </div>
+
+                    <span id="event-count" class="count-badge">
+                        0 events
+                    </span>
+
+                </div>
+
+
+                <div id="events-list" class="events-grid">
+
+                    <div class="loading-card">
+                        Loading events...
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Subscribe Section -->
+        <section id="subscribe" class="section subscribe-section">
+
+            <div class="container subscribe-card">
+
+                <div>
+
+                    <p class="eyebrow">STAY UPDATED</p>
+
+                    <h2>
+                        Never miss a new event
+                    </h2>
+
+                    <p>
+                        Subscribe with your email and receive announcements
+                        when new events are published.
+                    </p>
+
+                </div>
+
+
+                <form id="subscribe-form" class="subscribe-form">
+
+                    <label for="subscriber-email">
+                        Email address
+                    </label>
+
+                    <div class="input-row">
+
+                        <input
+                            type="email"
+                            id="subscriber-email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                        <button
+                            type="submit"
+                            class="btn primary"
+                        >
+                            Subscribe
+                        </button>
+
+                    </div>
+
+                    <p
+                        id="subscribe-message"
+                        class="form-message"
+                    ></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+        <!-- Create Event Section -->
+        <section id="create-event" class="section">
+
+            <div class="container create-layout">
+
+                <div class="create-intro">
+
+                    <p class="eyebrow">ADMINISTRATION</p>
+
+                    <h2>
+                        Create a new event
+                    </h2>
+
+                    <p>
+                        Publish a new event through the API. In the AWS version,
+                        this form will call API Gateway and the Event
+                        Registration Lambda.
+                    </p>
+
+
+                    <div class="architecture-mini">
+
+                        <span>Website</span>
+                        <b>→</b>
+
+                        <span>API Gateway</span>
+                        <b>→</b>
+
+                        <span>Lambda</span>
+                        <b>→</b>
+
+                        <span>S3 / SNS</span>
+
+                    </div>
+
+                </div>
+
+
+                <form id="event-form" class="event-form">
+
+                    <div class="form-group">
+
+                        <label for="event-name">
+                            Event name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="event-name"
+                            placeholder="AWS Cloud Workshop"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="event-date">
+                                Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="event-date"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="event-location">
+                                Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="event-location"
+                                placeholder="Online"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="event-description">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="event-description"
+                            rows="4"
+                            placeholder="Describe the event..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn primary full"
+                    >
+                        Create Event
+                    </button>
+
+
+                    <p
+                        id="event-message"
+                        class="form-message"
+                    ></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+                <strong>EventHub</strong>
+
+                <p>
+                    A serverless AWS event announcement project.
+                </p>
+            </div>
+
+            <div class="aws-stack">
+                S3 · API Gateway · Lambda · SNS
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
